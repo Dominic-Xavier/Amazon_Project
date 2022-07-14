@@ -121,6 +121,10 @@ public class WebTestBase extends BrowserDriver{
 		return driver.getWindowHandles();
 	}
 	
+	public String getwindowHandle() {
+		return driver.getWindowHandle();
+	}
+	
 	/*public void longPress(WebElement element) {
 		touchActions = new TouchActions(driver);
 		touchActions.longPress(element);

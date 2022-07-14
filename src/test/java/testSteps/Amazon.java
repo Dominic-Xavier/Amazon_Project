@@ -17,7 +17,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pageObject.AmazonPageObject;
 
-public class Amazon extends WebTestBase{
+public class Amazon extends WebTestBase {
 	
 	private WebDriver driver;
 	private WebTestBase webTestBase;
@@ -48,14 +48,14 @@ public class Amazon extends WebTestBase{
 	}
 	
 	@Then("Select Samsung and sort by proci high to low")
-	public void select_samsung_and_sort_by_proci_high_to_low() throws InterruptedException {
+	public void select_samsung_and_sort_by_proci_high_to_low() throws InterruptedException, IOException {
 		amazon.chooseCategory("Brands", "Samsung");
-		
 	}
 	
 	@Then("User selects the second largest price TV and prints the description under About this item section")
 	public void user_selects_the_second_largest_price_tv_and_prints_the_description_under_about_this_item_section() throws IOException {
-		//amazon.selectProduct();
+		amazon.selectProduct();
+		amazon.readAbtProduct();
 		runner.closeReports();
 	}
 	

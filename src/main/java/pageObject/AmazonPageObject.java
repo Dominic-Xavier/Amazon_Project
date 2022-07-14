@@ -3,6 +3,7 @@ package pageObject;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -44,6 +45,15 @@ public class AmazonPageObject extends WebTestBase{
 	@FindBys({@FindBy(xpath  = "//span[@class='a-price']/span/span[@class='a-price-whole']")})
 	private List<WebElement> priceList;
 	
+	@FindBys({@FindBy(xpath  = "//ul[@class='a-unordered-list a-vertical a-spacing-mini']/li/span")})
+	private List<WebElement> getAbtThisItem;
+	
+	@FindBy(xpath = "//span[text()='Show More']")
+	private WebElement show_More;
+	
+	@FindBys({@FindBy(xpath  = "//ul[@class='a-unordered-list a-vertical a-spacing-none']/li/span")})
+	private List<WebElement> showMoreItems;
+	
 	/*public WebElement selectCategory(String category) {
 		return driver.findElement(By.xpath("//div/span[text()='Brands']/parent::div//following-sibling::ul//li/span/a/span[text()='Samsung']"));
 	}*/
@@ -76,7 +86,7 @@ public class AmazonPageObject extends WebTestBase{
 		}
 	}
 	
-	public void chooseCategory(String category, String subCategory) throws InterruptedException {
+	public void chooseCategory(String category, String subCategory) throws InterruptedException, IOException {
 		//WebElement selectCategory = selectCategory(category);
 		implicitWait(10);
 		scroll(selectSamsungCategory);
@@ -84,6 +94,7 @@ public class AmazonPageObject extends WebTestBase{
 		//selectCategory.click();
 		//explicitWait(10, priceCategory);
 		priceCategory.click();
+		Reports.log(extentTest, "Price Category clicked ", ReportStatus.Pass);
 		
 		for (WebElement webElement : priceSubCategory) {
 			String text = webElement.getText();
@@ -96,8 +107,33 @@ public class AmazonPageObject extends WebTestBase{
 	
 	public void selectProduct() throws IOException {
 		priceList.get(1).click();
-		Reports.log(extentTest,priceList.get(1).getText(), ReportStatus.Pass);
+		Reports.log(extentTest, "Second Largest price "+priceList.get(1).getText()+" Clicked...!!!", ReportStatus.Pass);
 	}
 	
-	
+	public void readAbtProduct() throws IOException {
+		String getwindowHandle = getwindowHandle();
+		Set<String> windowHandles = getWindowHandles();
+		for (String string : windowHandles) {
+			if(!getwindowHandle.equals(string)) {
+				driver.switchTo().window(string);
+				break;
+			}
+		}
+		
+		scroll(show_More);
+		Reports.log(extentTest, "Show More clicked...!", ReportStatus.Pass);
+		show_More.click();
+		Reports.log(extentTest, "<b>About Product Description</b>", ReportStatus.pass);
+		for (WebElement element : getAbtThisItem) {
+			String text = element.getText();
+			System.out.println(text);
+			Reports.log(extentTest, text, ReportStatus.pass);
+		}
+		for (WebElement element : showMoreItems) {
+			String text = element.getText();
+			System.out.println(text);
+			Reports.log(extentTest, text, ReportStatus.pass);
+		}
+		
+	}
 }
