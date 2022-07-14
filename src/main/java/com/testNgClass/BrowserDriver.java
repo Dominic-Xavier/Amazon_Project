@@ -1,6 +1,7 @@
 package com.testNgClass;
 
 import java.io.IOException;
+
 import java.net.MalformedURLException;
 import java.net.URL;
 
@@ -88,7 +89,7 @@ public class BrowserDriver extends DataProviders {
 	
 	//User to launch WebApp
 	public static WebDriver Initialize(String browserName, String URL) throws BrowserException, IOException {
-		System.err.println("Browser name in Initialize is "+browserName);
+		System.out.println("Browser name in Initialize is "+browserName);
 		switch (browserName.toUpperCase()) {
 		case "CHROME":
 			WebDriverManager.chromedriver().setup();

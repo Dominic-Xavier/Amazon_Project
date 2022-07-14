@@ -16,13 +16,13 @@ import io.cucumber.testng.CucumberOptions;
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 
 @CucumberOptions(
-		features = {"./src/test/resources/testSteps/ExpenseIncome.feature"},
-		glue = {"testSteps"},
-		monochrome = true,
-		dryRun = false,
-		plugin = {"pretty","json:Reports/cucumber-reports/Cucumber.json", "html:Reports/cucumber-reports.html",
-				"rerun:target/failedTestCases.txt"}
-		)
+	features = {"./src/test/resources/testSteps/Amazon.feature"},
+	glue = {"testSteps"},
+	monochrome = true,
+	dryRun = false,
+	plugin = {"pretty","json:Reports/cucumber-reports/Cucumber.json", "html:Reports/cucumber-reports.html",
+			"rerun:target/failedTestCases.txt"}
+	)
 
 public class TestRunner extends AbstractTestNGCucumberTests {
 	

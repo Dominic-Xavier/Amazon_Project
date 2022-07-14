@@ -3,8 +3,8 @@
 
 <suite name="Automatio Practice" parallel = "none">
 
-  <test name="Android">
-  <parameter name = "Browsername" value = "Android"/>
+  <test name="Chrome">
+  <parameter name = "Browsername" value = "Chrome"/>
   	<classes>
   		<class name="com.testNgClass.BrowserDriver"/>
   		<class name="com.runner.TestRunner"/>

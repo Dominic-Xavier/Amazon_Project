@@ -11,29 +11,16 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.WindowType;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.interactions.touch.TouchActions;
-import org.openqa.selenium.opera.OperaDriver;
-import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.Test;
 
-import com.Reports.Reports;
-import com.aventstack.extentreports.ExtentReports;
-import com.customException.FolderNotCreated;
-import com.excelSheet.DataProviders;
 import com.testNgClass.BrowserDriver;
 
 import enumVariales.AlertBox;
 import enumVariales.KeyBoard;
 import enumVariales.SelectBy;
-import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class WebTestBase extends BrowserDriver{
 
@@ -43,7 +30,7 @@ public class WebTestBase extends BrowserDriver{
 	private static Actions actions;
 	private static Robot robot;
 	private static JavascriptExecutor executor;
-	private static TouchActions touchActions;
+	//private static TouchActions touchActions;
 	
 	public WebTestBase() {}
 	
@@ -134,10 +121,10 @@ public class WebTestBase extends BrowserDriver{
 		return driver.getWindowHandles();
 	}
 	
-	public void longPress(WebElement element) {
+	/*public void longPress(WebElement element) {
 		touchActions = new TouchActions(driver);
 		touchActions.longPress(element);
-	}
+	}*/
 	
 	public void selectByValueOrVisibletext(SelectBy by, WebElement element, String text) {
 		switch (by) {
@@ -274,27 +261,27 @@ public class WebTestBase extends BrowserDriver{
 	
 	public void scroll() {
 		executor = (JavascriptExecutor) driver;
-		executor.executeAsyncScript("window.scrollTo(0, document.body.scrollHeight)");
+		executor.executeScript("window.scrollTo(0, document.body.scrollHeight)");
 	}
 	
 	public void scroll(WebElement element) {
 		executor = (JavascriptExecutor) driver;
-		executor.executeAsyncScript("arguments[0].scrollIntoView();", element);
+		executor.executeScript("arguments[0].scrollIntoView();", element);
 	}
 	
 	public void forceclick(WebElement element) {
 		executor = (JavascriptExecutor) driver;
-		executor.executeAsyncScript("arguments[0].click();", element);
+		executor.executeScript("arguments[0].click();", element);
 	}
 	
 	public void javaScript(String script, WebElement element) {
 		executor = (JavascriptExecutor) driver;
-		executor.executeAsyncScript(script, element);
+		executor.executeScript(script, element);
 	}
 	
 	public void javaScript(String script) {
 		executor = (JavascriptExecutor) driver;
-		executor.executeAsyncScript(script);
+		executor.executeScript(script);
 	}
 	
 	public void keyBoardOperations(KeyBoard keyBoard) throws AWTException {
