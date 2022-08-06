@@ -62,7 +62,7 @@ public class AmazonPageObject extends WebTestBase{
 	private WebElement selectSamsungCategory;
 	
 	public void click_hamburger_menu() throws InterruptedException {
-		Thread.sleep(5000);
+		//Thread.sleep(5000);
 		hamburger_menu.click();
 	}
 	
@@ -90,7 +90,7 @@ public class AmazonPageObject extends WebTestBase{
 	
 	public void chooseCategory(String category, String subCategory) throws InterruptedException, IOException {
 		//WebElement selectCategory = selectCategory(category);
-		Thread.sleep(2000);
+		//Thread.sleep(2000);
 		implicitWait(10);
 		scroll(selectSamsungCategory);
 		selectSamsungCategory.click();

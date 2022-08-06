@@ -94,13 +94,13 @@ public class BrowserDriver extends DataProviders {
 		switch (browserName.toUpperCase()) {
 		case "CHROME":
 			WebDriverManager.chromedriver().setup();
-			ChromeOptions options = new ChromeOptions();
+			/*ChromeOptions options = new ChromeOptions();
 			options.addArguments("--no-sandbox");
 			options.addArguments("--headless"); //!!!should be enabled for Jenkins
 			options.addArguments("--disable-dev-shm-usage"); //!!!should be enabled for Jenkins
 			options.addArguments("--window-size=1920x1080"); //!!!should be enabled for Jenkins
-			WebDriver chrome = new ChromeDriver(options);
-			//WebDriver chrome = new ChromeDriver();
+			WebDriver chrome = new ChromeDriver(options);*/
+			WebDriver chrome = new ChromeDriver();
 			chrome.manage().window().maximize();
 			chrome.get(URL);
 			driver = chrome;
