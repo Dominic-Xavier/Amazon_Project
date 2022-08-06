@@ -90,8 +90,8 @@ public class AmazonPageObject extends WebTestBase{
 	
 	public void chooseCategory(String category, String subCategory) throws InterruptedException, IOException {
 		//WebElement selectCategory = selectCategory(category);
-		implicitWait(10);
 		Thread.sleep(2000);
+		implicitWait(10);
 		scroll(selectSamsungCategory);
 		selectSamsungCategory.click();
 		//selectCategory.click();
