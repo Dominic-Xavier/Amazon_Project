@@ -8,6 +8,7 @@ import java.net.URL;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
@@ -93,7 +94,12 @@ public class BrowserDriver extends DataProviders {
 		switch (browserName.toUpperCase()) {
 		case "CHROME":
 			WebDriverManager.chromedriver().setup();
-			WebDriver chrome = new ChromeDriver();
+			ChromeOptions options = new ChromeOptions();
+			options.addArguments("--no-sandbox");
+			options.addArguments("--headless"); //!!!should be enabled for Jenkins
+			options.addArguments("--disable-dev-shm-usage"); //!!!should be enabled for Jenkins
+			options.addArguments("--window-size=1920x1080"); //!!!should be enabled for Jenkins
+			WebDriver chrome = new ChromeDriver(options);
 			chrome.manage().window().maximize();
 			chrome.get(URL);
 			driver = chrome;
