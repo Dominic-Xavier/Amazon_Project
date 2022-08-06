@@ -66,6 +66,7 @@ public class AmazonPageObject extends WebTestBase{
 	}
 	
 	public void choose_Category_and_Product(String category, String product) throws IOException {
+		
 		for (WebElement webElement : categoryList) {
 			String categoryName = webElement.getText();
 			if(categoryName.equals(category) || categoryName.contains(category)) {
@@ -89,6 +90,7 @@ public class AmazonPageObject extends WebTestBase{
 	public void chooseCategory(String category, String subCategory) throws InterruptedException, IOException {
 		//WebElement selectCategory = selectCategory(category);
 		implicitWait(10);
+		Thread.sleep(2000);
 		scroll(selectSamsungCategory);
 		selectSamsungCategory.click();
 		//selectCategory.click();
