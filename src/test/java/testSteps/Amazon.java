@@ -37,7 +37,7 @@ public class Amazon extends WebTestBase {
 	}
 	
 	@Given("user clicks on hamburger menu")
-	public void user_clicks_on_hamburger_menu() throws IOException {
+	public void user_clicks_on_hamburger_menu() throws IOException, InterruptedException {
 		amazon.click_hamburger_menu();
 		Reports.log(extentTest, "Clicked HamBurger Menu ", ReportStatus.Pass);
 	}

@@ -61,7 +61,8 @@ public class AmazonPageObject extends WebTestBase{
 	@FindBy(xpath = "//span[text()='Samsung']")
 	private WebElement selectSamsungCategory;
 	
-	public void click_hamburger_menu() {
+	public void click_hamburger_menu() throws InterruptedException {
+		Thread.sleep(5000);
 		hamburger_menu.click();
 	}
 	
