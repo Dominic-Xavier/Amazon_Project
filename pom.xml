@@ -6,7 +6,9 @@
   <packaging>jar</packaging>
   <name>Amazon</name>
   <description>This is an E-Commerce Website</description>
-  
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>  
   <build>
   	<plugins>
   		<plugin>
